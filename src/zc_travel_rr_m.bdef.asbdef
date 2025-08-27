@@ -1,0 +1,32 @@
+projection;
+strict ( 2 );
+
+define behavior for ZC_TRAVEL_RR_M //alias <alias_name>
+use etag
+{
+  use create;
+  use update;
+  use delete;
+
+  use association _Booking { create; }
+}
+
+define behavior for ZC_BOOK_RR_M //alias <alias_name>
+use etag
+{
+  use update;
+  use delete;
+
+  use association _Travel;
+  use association _BookSuppl { create; }
+}
+
+define behavior for ZC_BOOKSUP_RR_M //alias <alias_name>
+use etag
+{
+  use update;
+  use delete;
+
+  use association _Travel;
+  use association _Booking;
+}
